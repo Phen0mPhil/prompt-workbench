@@ -130,6 +130,75 @@
   mark.search-hl { background: rgba(250, 204, 21, 0.35); color: #fef08a; border-radius: 2px; padding: 0 1px; }
   mark.search-hl.current { background: #f97316; color: #fff; outline: 1px solid #fdba74; }
 
+  
+  /* OLLAMA AI DRAWER */
+  .ai-drawer { flex-direction: column; align-items: stretch; gap: 8px; padding: 10px 12px; }
+  .ai-row { display: flex; align-items: center; gap: 6px; width: 100%; flex-wrap: wrap; }
+  .ai-input {
+    flex: 1; min-width: 140px; background: #141418; border: 1px solid #3f3f46;
+    border-radius: 7px; color: var(--text-primary); font-size: 12.5px; padding: 6px 10px; outline: none;
+  }
+  .ai-input:focus { border-color: var(--accent); }
+  .ai-output {
+    width: 100%; min-height: 75px; max-height: 180px; resize: vertical;
+    background: #0e0e11; border: 1px solid #2e2e36; border-radius: 7px;
+    color: #e4e4e7; font-size: 12.5px; line-height: 1.5; padding: 8px 10px; font-family: inherit;
+  }
+
+  
+  /* CHROME-STYLE RIGHT SIDE PANEL FOR OLLAMA */
+  .app-shell { display: flex; flex: 1; min-height: 0; width: 100%; overflow: hidden; }
+  .main-stage { flex: 1; min-width: 0; display: flex; flex-direction: column; overflow-y: auto; }
+  .ollama-sidepane {
+    width: 390px; max-width: 42vw; background: #151518;
+    border-left: 1px solid var(--border-subtle);
+    display: none; flex-direction: column; height: calc(100vh - 55px);
+    position: sticky; top: 55px; flex-shrink: 0; z-index: 25;
+  }
+  .ollama-sidepane.open { display: flex; }
+  .sidepane-head {
+    padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    background: #1a1a1f;
+  }
+  .sidepane-body {
+    flex: 1; padding: 12px; display: flex; flex-direction: column; gap: 10px; overflow-y: auto;
+  }
+  .sp-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-secondary); display: flex; justify-content: space-between; align-items: center; }
+  .sp-box {
+    width: 100%; background: #0e0e11; border: 1px solid #2e2e36; border-radius: 8px;
+    color: var(--text-primary); font-size: 13px; line-height: 1.5; padding: 9px 10px;
+    font-family: inherit; resize: vertical; outline: none;
+  }
+  .sp-box:focus { border-color: var(--accent); }
+
+  
+  /* CHROME-STYLE RIGHT SIDE PANEL FOR OLLAMA */
+  .app-shell { display: flex; flex: 1; min-height: 0; width: 100%; overflow: hidden; }
+  .main-stage { flex: 1; min-width: 0; display: flex; flex-direction: column; overflow-y: auto; }
+  .ollama-sidepane {
+    width: 390px; max-width: 42vw; background: #151518;
+    border-left: 1px solid var(--border-subtle);
+    display: none; flex-direction: column; height: calc(100vh - 55px);
+    position: sticky; top: 55px; flex-shrink: 0; z-index: 25;
+  }
+  .ollama-sidepane.open { display: flex; }
+  .sidepane-head {
+    padding: 10px 14px; border-bottom: 1px solid var(--border-subtle);
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    background: #1a1a1f;
+  }
+  .sidepane-body {
+    flex: 1; padding: 12px; display: flex; flex-direction: column; gap: 10px; overflow-y: auto;
+  }
+  .sp-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-secondary); display: flex; justify-content: space-between; align-items: center; }
+  .sp-box {
+    width: 100%; background: #0e0e11; border: 1px solid #2e2e36; border-radius: 8px;
+    color: var(--text-primary); font-size: 13px; line-height: 1.5; padding: 9px 10px;
+    font-family: inherit; resize: vertical; outline: none;
+  }
+  .sp-box:focus { border-color: var(--accent); }
+
   /* TINTS & WHITES */
   .tint-default { background: var(--tint-default-bg); border-color: var(--tint-default-border); }
   .tint-red     { background: var(--tint-red-bg);     border-color: var(--tint-red-border); }
@@ -205,13 +274,56 @@
   .ws-pane.active-pane { border: 2px solid var(--accent) !important; box-shadow: 0 0 15px rgba(37, 99, 235, 0.25); }
   .ws-compact-header { padding: 6px 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; gap: 6px; background: rgba(0, 0, 0, 0.24); }
   .ws-pane-index { font-size: 10.5px; font-weight: 700; background: rgba(255, 255, 255, 0.1); color: var(--text-secondary); padding: 2px 6px; border-radius: 5px; flex-shrink: 0; }
-  .ws-title-input { flex: 1; min-width: 60px; background: transparent; border: 1px solid transparent; border-radius: 5px; font-size: 14px; font-weight: 700; padding: 3px 6px; }
+  .ws-title-input { flex: 1; min-width: 60px; background: transparent; color: inherit; border: 1px solid transparent; border-radius: 5px; font-size: 14px; font-weight: 700; padding: 3px 6px; }
   .ws-title-input:focus { outline: none; background: rgba(0, 0, 0, 0.3); border-color: var(--accent); }
   .ws-icon-group { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
   .ws-pane-footer { padding: 6px 10px; border-top: 1px solid rgba(255, 255, 255, 0.07); background: rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; gap: 5px; }
 
   #toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: #27272a; color: #fff; border: 1px solid #3f3f46; padding: 9px 16px; border-radius: 9px; font-size: 13px; opacity: 0; pointer-events: none; transition: 0.2s; z-index: 100; }
   #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* Solid bubble/pill buttons in top bar */
+  header button, .topbar button, .top-bar button, .toolbar button, nav button {
+    border: none !important;
+    border-radius: 999px !important;
+    padding: 7px 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    transition: transform 0.12s ease, filter 0.15s ease;
+  }
+  header button:hover, .topbar button:hover, .top-bar button:hover, .toolbar button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+  }
+  #toggleSideOllamaBtn, button[onclick*="toggleOllamaSidepane"] {
+    background: #38bdf8 !important;
+    color: #06131a !important;
+  }
+  button[onclick*="quitWorkbenchApp"] {
+    background: #ef4444 !important;
+    color: #000000 !important;
+  }
+  button[onclick*="createNewNote"] {
+    background: #2563eb !important;
+    color: #ffffff !important;
+  }
+  #workspaceToggleBtn {
+    color: #ffffff !important;
+    transition: background 0.2s ease, transform 0.12s ease !important;
+  }
+  button[onclick*="linkFile"] {
+    background: #a855f7 !important;
+    color: #ffffff !important;
+  }
+  button[onclick*="importFile"] {
+    background: #f59e0b !important;
+    color: #140d02 !important;
+  }
+  button[onclick*="toggleTrashView"], #trashBtn {
+    background: #64748b !important;
+    color: #ffffff !important;
+  }
+
 </style>
 </head>
 <body>
@@ -222,18 +334,30 @@
       <button class="btn-primary" onclick="createNewNote()">+ New Note</button>
       <button class="btn-secondary" onclick="linkFileByPath()" title="Link local file pointer">Link File</button>
       <button class="btn-secondary" onclick="triggerImport()" title="Import into app">Import</button>
-      <input type="file" id="importFileInput" accept=".txt,.html,.htm,.md,.docx,.pdf" style="display:none" onchange="importFileUpload(event)">
+      <input type="file" id="importFileInput" accept=".txt,.md,.json,.csv,.pdf,.docx,.log,.yaml,.yml" style="display:none" onchange="importFileUpload(event)">
       <button class="btn-secondary" id="trashTabBtn" onclick="toggleTrashView()">Trash (0)</button>
+      <span class="brand-badge" id="totalCountBadge">0 notes</span>
     </div>
     <div class="search-wrap" id="librarySearchContainer">
       <span class="search-icon">🔍</span>
       <input id="globalSearch" type="text" placeholder="Search notes by title, keyword, or #tag..." oninput="handleSearchInput()">
       <button class="clear-search" id="clearSearchBtn" onclick="clearGlobalSearch()">✕</button>
     </div>
-    <div class="brand"><span class="brand-badge" id="totalCountBadge">0 notes</span><span>Prompt & Note Workbench</span></div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button class="btn-secondary" id="toggleSideOllamaBtn" style="background:#0284c7 !important; color:#ffffff !important;" onclick="toggleOllamaSidepane()" title="Toggle Ollama Side Terminal">✨ Ollama</button>
+    <button class="btn-secondary" style="background:#dc2626 !important; color:#ffffff !important;" onclick="quitWorkbenchApp()" title="Close Server & Free Port 8080" >Quit</button>
+      <div style="display:flex; align-items:center; gap:10px;">
+      
+      <div class="brand"><span>Prompt & Note Workbench</span></div>
+    </div>
+    </div>
   </header>
 
-  <main id="libraryView">
+  <div class="app-shell">
+    <div class="main-stage">
+      <div class="app-shell">
+    <div class="main-stage">
+      <main id="libraryView">
     <div class="library-meta-bar">
       <div id="filterStatusText">Showing active notes</div>
       <div style="display:flex; gap:10px; align-items:center;">
@@ -244,6 +368,74 @@
     <div class="masonry" id="masonryGrid"></div>
   </main>
   <section id="workspaceView"></section>
+    </div>
+
+    <!-- CHROME-STYLE OLLAMA SIDE TERMINAL -->
+    <aside class="ollama-sidepane" id="ollamaSidepane">
+      <div class="sidepane-head">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-weight:700; font-size:13.5px;">✨ Ollama</span>
+          <select class="size-select" id="spModelSelect"><option value="qwen2.5:1.5b">qwen2.5:1.5b</option></select>
+        </div>
+        <button class="icon-btn" onclick="toggleOllamaSidepane()">✕</button>
+      </div>
+      <div class="sidepane-body">
+        <div class="sp-label"><span>1. Instruction / System Prompt</span></div>
+        <textarea class="sp-box" id="spInstruction" rows="3" placeholder="e.g., You are a Wan 2.2 prompt expert. Expand this with camera motion and lighting..."></textarea>
+
+        <div class="sp-label">
+          <span>2. Input Text</span>
+          <button class="icon-btn" style="padding:2px 7px; font-size:11px;" onclick="pullActivePaneIntoSidepane()">Pull from Active Pane</button>
+        </div>
+        <textarea class="sp-box" id="spInputText" rows="6" placeholder="Paste text here or click 'Pull from Active Pane'..."></textarea>
+
+        <button class="btn-primary" style="justify-content:center; padding:9px;" id="spRunBtn" onclick="runSidepaneOllama()">▶ Send to Ollama</button>
+
+        <div class="sp-label">
+          <span>3. Ollama Response</span>
+          <div style="display:flex; gap:5px;">
+            <button class="icon-btn" style="padding:2px 7px; font-size:11px;" onclick="copyAiOut('spResponseBox', this)">Copy</button>
+            <button class="icon-btn" style="padding:2px 7px; font-size:11px;" onclick="pushSidepaneToActivePane()">Send to Active Pane</button>
+          </div>
+        </div>
+        <textarea class="sp-box" id="spResponseBox" style="flex:1; min-height:140px;" placeholder="Ollama output appears here..."></textarea>
+      </div>
+    </aside>
+  </div>
+    </div>
+
+    <!-- CHROME-STYLE OLLAMA SIDE TERMINAL -->
+    <aside class="ollama-sidepane" id="ollamaSidepane">
+      <div class="sidepane-head">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-weight:700; font-size:13.5px;">✨ Ollama</span>
+          <select class="size-select" id="spModelSelect"><option value="qwen2.5:1.5b">qwen2.5:1.5b</option></select>
+        </div>
+        <button class="icon-btn" onclick="toggleOllamaSidepane()">✕</button>
+      </div>
+      <div class="sidepane-body">
+        <div class="sp-label"><span>1. Instruction / System Prompt</span></div>
+        <textarea class="sp-box" id="spInstruction" rows="3" placeholder="e.g., You are a Wan 2.2 prompt expert. Expand this with camera motion and lighting..."></textarea>
+
+        <div class="sp-label">
+          <span>2. Input Text</span>
+          <button class="icon-btn" style="padding:2px 7px; font-size:11px;" onclick="pullActivePaneIntoSidepane()">Pull from Active Pane</button>
+        </div>
+        <textarea class="sp-box" id="spInputText" rows="6" placeholder="Paste text here or click 'Pull from Active Pane'..."></textarea>
+
+        <button class="btn-primary" style="justify-content:center; padding:9px;" id="spRunBtn" onclick="runSidepaneOllama()">▶ Send to Ollama</button>
+
+        <div class="sp-label">
+          <span>3. Ollama Response</span>
+          <div style="display:flex; gap:5px;">
+            <button class="icon-btn" style="padding:2px 7px; font-size:11px;" onclick="copyAiOut('spResponseBox', this)">Copy</button>
+            <button class="icon-btn" style="padding:2px 7px; font-size:11px;" onclick="pushSidepaneToActivePane()">Send to Active Pane</button>
+          </div>
+        </div>
+        <textarea class="sp-box" id="spResponseBox" style="flex:1; min-height:140px;" placeholder="Ollama output appears here..."></textarea>
+      </div>
+    </aside>
+  </div>
 
   <!-- NOTE MODAL -->
   <div class="modal-backdrop" id="noteModal" onclick="if(event.target.id==='noteModal') closeModal()">
@@ -253,6 +445,7 @@
           <button class="icon-btn" id="modalPaletteBtn" onclick="toggleDrawer('modalPaletteDrawer', 'modalPaletteBtn')">🎨 Color</button>
           <button class="icon-btn" id="modalFormatBtn" onclick="toggleDrawer('modalFormatDrawer', 'modalFormatBtn')"><b>Aa</b> Format</button>
           <button class="icon-btn" id="modalFindBtn" onclick="toggleDrawer('modalFindDrawer', 'modalFindBtn', 'modalFindInput')">🔍 Find</button>
+          <button class="icon-btn" id="modalAiBtn" onclick="openAiDrawer('modalAiDrawer', 'modalAiBtn', 'modalAiInstr', 'modalAiModel')">✨ AI</button>
           <button id="modalReloadBtn" class="icon-btn" style="display:none;" onclick="reloadLinkedFile(activeModalNoteId)">↻ Reload</button>
         </div>
         <div style="display:flex; align-items:center; gap:8px;">
@@ -283,6 +476,22 @@
           <button class="nav-match-btn" onclick="stepEditorSearch('modalEditor', 1, 'modalFindCount')">▼</button>
         </div>
         <button class="icon-btn" onclick="closeSearchDrawer('modalEditor', 'modalFindDrawer', 'modalFindBtn', 'modalFindInput', 'modalFindCount')">✕</button>
+      </div>
+
+            <div class="sub-drawer ai-drawer" id="modalAiDrawer">
+        <div class="ai-row">
+          <select class="size-select" id="modalAiModel" title="Ollama Model"><option value="qwen2.5:1.5b">qwen2.5:1.5b</option></select>
+          <input type="text" class="ai-input" id="modalAiInstr" placeholder="Instruction (e.g., Translate to Spanish, make concise)..."
+            onkeydown="if(event.key==='Enter'){event.preventDefault();runOllama('modalEditor','modalAiModel','modalAiInstr','modalAiOut',this);}">
+          <button class="btn-primary" style="padding:5px 11px;" onclick="runOllama('modalEditor','modalAiModel','modalAiInstr','modalAiOut',this)">Run</button>
+          <button class="icon-btn" onclick="toggleDrawer('modalAiDrawer','modalAiBtn')">✕</button>
+        </div>
+        <textarea class="ai-output" id="modalAiOut" placeholder="Ollama output appears here (uses highlighted text if selected, otherwise whole note)..."></textarea>
+        <div class="ai-row" style="justify-content:flex-end;">
+          <button class="icon-btn" onclick="copyAiOut('modalAiOut', this)">Copy</button>
+          <button class="icon-btn" onclick="applyAiOut('modalEditor', 'modalAiOut', 'append')">+ Append</button>
+          <button class="btn-primary" style="padding:4px 10px;" onclick="applyAiOut('modalEditor', 'modalAiOut', 'replace')">Replace Note</button>
+        </div>
       </div>
 
       <div class="modal-body" onkeydown="if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='f'){event.preventDefault();toggleDrawer('modalFindDrawer','modalFindBtn','modalFindInput');}">
@@ -338,24 +547,53 @@
     try {
       const res = await fetch('/api/state');
       const data = await res.json();
-      notes = Array.isArray(data.notes) ? data.notes : [];
-      workspaceIds = Array.isArray(data.workspaceIds) ? data.workspaceIds.filter(id => notes.some(n => n.id === id && !n.trashed)).slice(0, MAX_WORKSPACE_PANES) : [];
+      notes = (Array.isArray(data.notes) ? data.notes : []).map(n => ({ ...n, bodyHtml: n.bodyHtml || (n.content ? escapeHTML(n.content).replace(/\n/g, '<br>') : '') }));
+      workspaceIds = Array.isArray(data.workspaceIds) ? data.workspaceIds.filter(id => notes.some(n => String(n.id) === String(id) && !n.trashed)).slice(0, MAX_WORKSPACE_PANES) : [];
     } catch (e) { notes = []; workspaceIds = []; }
     buildModalPaletteDots();
+    renderLibrary();
+  }
+
+
+  function syncNotesPlainContent() {
+    if (!Array.isArray(notes)) return;
+    notes.forEach(n => {
+      if (typeof n.bodyHtml === 'string' && n._lastSyncedHtml !== n.bodyHtml) {
+        const tmp = document.createElement('div');
+        tmp.innerHTML = n.bodyHtml.replace(/<br\s*\/?>/gi, '\n').replace(/<\/div>\s*<div>/gi, '\n');
+        n.content = tmp.textContent || tmp.innerText || '';
+        n._lastSyncedHtml = n.bodyHtml;
+      }
+    });
+  }
+
+  function moveNoteToJunk(noteId, ev) {
+    if (ev) ev.stopPropagation();
+    const note = notes.find(n => String(n.id) === String(noteId));
+    if (!note) return;
+    note.trashed = true;
+    note.updatedAt = Date.now();
+    if (typeof workspaceIds !== 'undefined') {
+      workspaceIds = workspaceIds.filter(id => String(id) !== String(noteId));
+    }
+    syncNotesPlainContent();
+    queueSaveState();
     renderLibrary();
   }
 
   function queueSaveState() {
     clearTimeout(saveTimer);
     saveTimer = setTimeout(async () => {
+      syncNotesPlainContent();
       try {
         await fetch('/api/state', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ notes, workspaceIds }) });
       } catch (e) {}
-    }, 300);
+    }, 450);
   }
 
   async function flushStateNow() {
     clearTimeout(saveTimer);
+    syncNotesPlainContent();
     try {
       await fetch('/api/state', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ notes, workspaceIds }) });
     } catch (e) {}
@@ -365,6 +603,7 @@
     return String(str).replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>').replace(/"/g, '"');
   }
   function stripSearchHighlights(html) {
+    if (!html || html.indexOf('search-hl') === -1) return html || '';
     const tmp = document.createElement('div');
     tmp.innerHTML = html;
     tmp.querySelectorAll('mark.search-hl').forEach(m => m.replaceWith(document.createTextNode(m.textContent)));
@@ -408,16 +647,32 @@
 
   function toggleCase() {
     const sel = window.getSelection();
-    if (!sel.isCollapsed) document.execCommand('insertText', false, sel.toString().toUpperCase());
+    if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
+    const range = sel.getRangeAt(0);
+    const raw = range.toString();
+    if (!raw) return;
+    const hasLetters = /[a-zA-Z]/.test(raw);
+    const nextText = (hasLetters && raw === raw.toUpperCase()) ? raw.toLowerCase() : raw.toUpperCase();
+    const editor = range.commonAncestorContainer.nodeType === 1
+      ? range.commonAncestorContainer.closest('.rich-editor')
+      : range.commonAncestorContainer.parentElement?.closest('.rich-editor');
+    range.deleteContents();
+    const txtNode = document.createTextNode(nextText);
+    range.insertNode(txtNode);
+    sel.removeAllRanges();
+    const newRange = document.createRange();
+    newRange.selectNodeContents(txtNode);
+    sel.addRange(newRange);
+    if (editor) editor.dispatchEvent(new Event('input'));
   }
 
   function markFileDirty(id) {
-    const note = notes.find(n => n.id === id);
+    const note = notes.find(n => String(n.id) === String(id));
     if (note && note.filePath) dirtyFileNotes.add(id);
   }
 
   async function silentSaveToDisk(id) {
-    const note = notes.find(n => n.id === id);
+    const note = notes.find(n => String(n.id) === String(id));
     if (!note || !note.filePath) return;
     const cleanHtml = stripSearchHighlights(note.bodyHtml);
     const isHtml = note.filePath.toLowerCase().endsWith('.html') || note.filePath.toLowerCase().endsWith('.htm');
@@ -532,7 +787,7 @@
   }
 
   async function reloadLinkedFile(id) {
-    const note = notes.find(n => n.id === id);
+    const note = notes.find(n => String(n.id) === String(id));
     if (!note || !note.filePath) return;
     try {
       const res = await fetch('/api/link-file', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ filePath: note.filePath }) });
@@ -576,32 +831,29 @@
   }
 
   async function saveAsWithFolderPicker(id) {
-    const note = notes.find(n => n.id === id);
+    const note = notes.find(n => String(n.id) === String(id));
     if (!note) return;
+    const cleanHtml = stripSearchHighlights(note.bodyHtml || '');
+    const content = stripHTML(cleanHtml);
+    const title = (note.title || 'untitled').trim();
+
     try {
-      const pickRes = await fetch('/api/pick-folder');
-      if (!pickRes.ok) { showToast('Folder selection cancelled'); return; }
-      const { folder } = await pickRes.json();
-      const defaultName = (note.title.trim() || 'note').replace(/[^a-z0-9_\\-\\. ]/gi, '_') + '.txt';
-      const fileName = prompt('Enter filename (e.g., .txt, .html):', defaultName);
-      if (!fileName || !fileName.trim()) return;
-      const sep = folder.includes('\\\\') ? '\\\\' : '/';
-      const fullPath = folder.replace(/[\\\\\\/]+$/, '') + sep + fileName.trim();
-      const cleanHtml = stripSearchHighlights(note.bodyHtml);
-      const isHtml = fileName.trim().toLowerCase().endsWith('.html') || fileName.trim().toLowerCase().endsWith('.htm');
-      
-      const saveRes = await fetch('/api/save-note', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ filePath: fullPath, content: isHtml ? cleanHtml : stripHTML(cleanHtml) }) });
-      if (!saveRes.ok) { showToast(await saveRes.text()); return; }
-      const data = await saveRes.json();
-      note.filePath = data.filePath; note.updatedAt = Date.now();
-      await flushStateNow();
-      if (activeModalNoteId === id) {
-        const ptr = document.getElementById('modalPointerDisplay');
-        ptr.style.display = 'block'; ptr.textContent = 'File Path: ' + note.filePath;
-        document.getElementById('modalReloadBtn').style.display = 'inline-flex';
+      const res = await fetch('/api/save-as', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, content })
+      });
+      if (!res.ok) {
+        showToast('Save As dialog failed');
+        return;
       }
-      showToast('Saved to ' + note.filePath);
-    } catch (e) { showToast('Save As failed'); }
+      const data = await res.json();
+      if (!data.canceled && data.path) {
+        showToast('Saved to ' + data.path);
+      }
+    } catch (e) {
+      showToast('Save As failed');
+    }
   }
 
   function toggleTrashView() {
@@ -611,17 +863,18 @@
 
   function toggleWorkspaceStage(id, event) {
     if (event) event.stopPropagation();
-    const note = notes.find(n => n.id === id);
+    const targetId = String(id);
+    const note = notes.find(n => String(n.id) === targetId);
     if (!note || note.trashed) return;
-    const idx = workspaceIds.indexOf(id);
+    const idx = workspaceIds.findIndex(x => String(x) === targetId);
     if (idx !== -1) {
       workspaceIds.splice(idx, 1); showToast(`Removed "${note.title || 'Untitled'}"`);
     } else {
       if (workspaceIds.length >= MAX_WORKSPACE_PANES) { showToast('Workspace full (3/3).'); return; }
-      workspaceIds.push(id); showToast(`Staged (${workspaceIds.length}/3)`);
+      workspaceIds.push(note.id); showToast(`Staged (${workspaceIds.length}/3)`);
     }
     queueSaveState(); renderLibrary();
-    if (activeModalNoteId === id) updateModalStageButton();
+    if (String(activeModalNoteId) === targetId) updateModalStageButton();
   }
 
   function toggleViewMode() {
@@ -645,11 +898,18 @@
 
   function updateHeaderUI() {
     const btn = document.getElementById('workspaceToggleBtn');
+    const count = workspaceIds.length;
+    const pct = Math.min(100, Math.round((count / MAX_WORKSPACE_PANES) * 100));
     if (currentMode === 'workspace') {
-      btn.textContent = '← Main Library'; btn.className = 'btn-workspace-toggle in-workspace';
+      btn.textContent = '← Main Library';
+      btn.className = 'btn-workspace-toggle in-workspace';
+      btn.style.background = '#27272a';
     } else {
-      btn.textContent = `Workspace (${workspaceIds.length}/${MAX_WORKSPACE_PANES})`;
-      btn.className = workspaceIds.length > 0 ? 'btn-workspace-toggle has-items' : 'btn-workspace-toggle';
+      btn.textContent = `Workspace (${count}/${MAX_WORKSPACE_PANES})`;
+      btn.className = count > 0 ? 'btn-workspace-toggle has-items' : 'btn-workspace-toggle';
+      btn.style.background = count === 0
+        ? '#1e293b'
+        : (count >= MAX_WORKSPACE_PANES ? '#16a34a' : `linear-gradient(90deg, #16a34a ${pct}%, #1e293b ${pct}%)`);
     }
     const trashBtn = document.getElementById('trashTabBtn');
     trashBtn.textContent = `Trash (${notes.filter(n => n.trashed).length})`;
@@ -681,8 +941,9 @@
     } else {
       document.getElementById('filterStatusText').textContent = `Showing ${pool.length} active notes`;
       document.getElementById('stagedPillsContainer').innerHTML = workspaceIds.map((id, idx) => {
-        const n = notes.find(item => item.id === id);
-        return n ? `<span class="staged-chip">Pane ${idx + 1}: ${escapeHTML(n.title || 'Untitled')} <button onclick="toggleWorkspaceStage(${id}, event)">✕</button></span>` : '';
+        const n = notes.find(item => String(item.id) === String(id));
+        const sid = `'${String(id).replace(/'/g, "\\'")}'`;
+        return n ? `<span class="staged-chip">Pane ${idx + 1}: ${escapeHTML(n.title || 'Untitled')} <button onclick="toggleWorkspaceStage(${sid}, event)">✕</button></span>` : '';
       }).join('');
     }
 
@@ -693,16 +954,24 @@
     });
 
     grid.innerHTML = filtered.map(note => {
-      const isStaged = workspaceIds.includes(note.id);
-      const ptrHtml = note.filePath ? `<div class="pointer-badge">📎 ${escapeHTML(note.filePath)}</div>` : '';
+      if (!note.bodyHtml && note.content) {
+        note.bodyHtml = escapeHTML(note.content).replace(/\n/g, '<br>');
+      }
+      const stageSlot = Array.isArray(workspaceIds) ? workspaceIds.findIndex(id => id !== null && id !== undefined && String(id) === String(note.id)) : -1;
+      const isStaged = stageSlot !== -1;
+      const srcLabel = note.sourceName ? `<div class="pointer-badge" title="Imported from ${escapeHTML(note.sourceName)}">📄 ${escapeHTML(note.sourceName)}</div>` : '';
+      const safeIdArg = typeof note.id === 'string' ? `'${note.id.replace(/'/g, "\\'")}'` : note.id;
       return `
-        <article class="card tint-${escapeHTML(note.color)} ${isStaged ? 'is-staged' : ''}" onclick="openNoteModal(${note.id})">
+        <article class="card tint-${escapeHTML(note.color)} ${isStaged ? 'is-staged' : ''}" onclick="openNoteModal(${safeIdArg})">
           <div class="card-head">
             <h3 class="card-title">${escapeHTML(note.title || 'Untitled Note')}</h3>
-            ${!viewingTrash ? `<button class="stage-btn ${isStaged ? 'staged' : ''}" onclick="toggleWorkspaceStage(${note.id}, event)">${isStaged ? `Pane ${workspaceIds.indexOf(note.id) + 1} ✓` : '+ Workspace'}</button>` : ''}
+            ${!viewingTrash ? `<div style="display:flex; align-items:center; gap:4px;">
+              <button class="stage-btn ${isStaged ? 'staged' : ''}" onclick="toggleWorkspaceStage(${safeIdArg}, event)">${isStaged ? `Pane ${stageSlot + 1} ✓` : '+ Workspace'}</button>
+              <button class="stage-btn" style="padding:3px 7px; color:#f87171; border-color:rgba(248,113,113,0.35);" title="Move to documents/junk" onclick="moveNoteToJunk(${safeIdArg}, event)">🗑️</button>
+            </div>` : ''}
           </div>
-          ${ptrHtml}
-          <div class="card-preview">${note.bodyHtml || '<span style="color:#71717a">(Empty note)</span>'}</div>
+          ${srcLabel}
+          <div class="card-preview">${note.bodyHtml || '<span style="color:#71717a">(Empty note — click to edit)</span>'}</div>
           ${note.tags.length ? `<div class="tags">${note.tags.map(t => `<span class="tag">#${escapeHTML(t)}</span>`).join('')}</div>` : ''}
         </article>`;
     }).join('');
@@ -715,12 +984,12 @@
 
   function createNewNote() {
     viewingTrash = false;
-    const newNote = { id: Date.now(), title: '', tags: [], bodyHtml: '', color: 'default', trashed: false, updatedAt: Date.now() };
+    const newNote = { id: 'note_' + Date.now(), title: '', tags: [], bodyHtml: '', color: 'default', trashed: false, updatedAt: Date.now() };
     notes.unshift(newNote); queueSaveState(); renderLibrary(); openNoteModal(newNote.id, true);
   }
 
   function openNoteModal(id, focusTitle = false) {
-    const note = notes.find(n => n.id === id);
+    const note = notes.find(n => String(n.id) === String(id));
     if (!note) return;
     activeModalNoteId = id;
     document.getElementById('modalCard').className = `modal-card tint-${note.color}`;
@@ -756,7 +1025,7 @@
     if (editor && closingId !== null) {
       clearHighlightsInDOM(editor);
       autoSaveModal();
-      const note = notes.find(n => n.id === closingId);
+      const note = notes.find(n => String(n.id) === String(closingId));
       await writeNoteToDefaultDir(note);
       await flushStateNow();
     }
@@ -766,26 +1035,26 @@
   }
 
   function renderModalTagPills() {
-    const note = notes.find(n => n.id === activeModalNoteId);
+    const note = notes.find(n => String(n.id) === String(activeModalNoteId));
     if (!note) return;
     document.getElementById('modalTagsList').innerHTML = note.tags.map((tag, idx) => `<span class="tag">#${escapeHTML(tag)} <button class="tag-remove" onclick="removeModalTag(${idx})">✕</button></span>`).join('');
   }
 
   function addTagFromModal() {
-    const note = notes.find(n => n.id === activeModalNoteId);
+    const note = notes.find(n => String(n.id) === String(activeModalNoteId));
     const input = document.getElementById('modalNewTagInput');
     if (!note || !input) return;
     const raw = input.value.trim().replace(/^#/, '');
-    if (raw && !note.tags.includes(raw)) { note.tags.push(raw); note.updatedAt = Date.now(); queueSaveState(); }
+    if (raw && !note.tags.includes(raw)) { note.tags.push(raw); note.updatedAt = Date.now(); flushStateNow(); }
     input.value = ''; renderModalTagPills();
   }
   function removeModalTag(idx) {
-    const note = notes.find(n => n.id === activeModalNoteId);
-    if (note) { note.tags.splice(idx, 1); note.updatedAt = Date.now(); queueSaveState(); renderModalTagPills(); }
+    const note = notes.find(n => String(n.id) === String(activeModalNoteId));
+    if (note) { note.tags.splice(idx, 1); note.updatedAt = Date.now(); flushStateNow(); renderModalTagPills(); }
   }
   function setModalColor(color) {
-    const note = notes.find(n => n.id === activeModalNoteId);
-    if (note) { note.color = color; queueSaveState(); document.getElementById('modalCard').className = `modal-card tint-${color}`; document.querySelectorAll('#modalColorDots .color-dot').forEach(d => d.classList.toggle('active', d.dataset.color === color)); }
+    const note = notes.find(n => String(n.id) === String(activeModalNoteId));
+    if (note) { note.color = color; flushStateNow(); document.getElementById('modalCard').className = `modal-card tint-${color}`; document.querySelectorAll('#modalColorDots .color-dot').forEach(d => d.classList.toggle('active', d.dataset.color === color)); }
   }
   function toggleModalWorkspaceStage() { if (activeModalNoteId !== null) toggleWorkspaceStage(activeModalNoteId); }
   function updateModalStageButton() {
@@ -795,17 +1064,17 @@
     btn.classList.toggle('staged', idx !== -1);
   }
   function autoSaveModal() {
-    const note = notes.find(n => n.id === activeModalNoteId);
+    const note = notes.find(n => String(n.id) === String(activeModalNoteId));
     if (note) { note.title = document.getElementById('modalTitle').value; note.bodyHtml = stripSearchHighlights(document.getElementById('modalEditor').innerHTML); note.updatedAt = Date.now(); queueSaveState(); markFileDirty(activeModalNoteId); }
   }
   function deleteCurrentModalNote() {
-    const note = notes.find(n => n.id === activeModalNoteId);
+    const note = notes.find(n => String(n.id) === String(activeModalNoteId));
     if (!note) return;
     if (note.trashed) { notes = notes.filter(n => n.id !== activeModalNoteId); showToast('Permanently deleted'); }
     else { note.trashed = true; workspaceIds = workspaceIds.filter(id => id !== activeModalNoteId); showToast('Moved to Trash'); }
     queueSaveState(); closeModal();
   }
-  function restoreNote(id) { const note = notes.find(n => n.id === id); if (note) { note.trashed = false; queueSaveState(); closeModal(); showToast('Restored'); } }
+  function restoreNote(id) { const note = notes.find(n => String(n.id) === String(id)); if (note) { note.trashed = false; queueSaveState(); closeModal(); showToast('Restored'); } }
   function emptyTrash() { if (confirm('Empty Trash?')) { notes = notes.filter(n => !n.trashed); queueSaveState(); renderLibrary(); showToast('Trash emptied'); } }
   function copyModalContent(btn) { navigator.clipboard.writeText(stripHTML(document.getElementById('modalEditor').innerHTML)); btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy Text', 1200); }
 
@@ -814,23 +1083,24 @@
     if (workspaceIds.length === 0) { switchToLibrary(); return; }
     container.className = `active cols-${workspaceIds.length}`;
     container.innerHTML = workspaceIds.map((id, idx) => {
-      const note = notes.find(n => n.id === id);
+      const note = notes.find(n => String(n.id) === String(id));
       if (!note) return '';
-      const dots = TINT_OPTIONS.map(t => `<span class="color-dot ${note.color===t.id?'active':''}" title="${t.label}" style="width:16px;height:16px;background:${t.swatch};" onclick="setPaneColor(${id},'${t.id}')"></span>`).join('');
-      const tagPills = note.tags.map((tag, tIdx) => `<span class="tag">#${escapeHTML(tag)} <button class="tag-remove" onclick="removePaneTag(${id}, ${tIdx})">✕</button></span>`).join('');
+      const dots = TINT_OPTIONS.map(t => `<span class="color-dot ${note.color===t.id?'active':''}" title="${t.label}" style="width:16px;height:16px;background:${t.swatch};" onclick="setPaneColor('${id}','${t.id}')"></span>`).join('');
+      const tagPills = note.tags.map((tag, tIdx) => `<span class="tag">#${escapeHTML(tag)} <button class="tag-remove" onclick="removePaneTag('${id}', ${tIdx})">✕</button></span>`).join('');
 
       return `
-        <div class="ws-pane tint-${escapeHTML(note.color)}" id="ws-pane-container-${id}" onmousedown="setActivePane(${id})" onkeydown="if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='f'){event.preventDefault();toggleDrawer('ws-find-${id}','ws-find-btn-${id}','ws-find-in-${id}');}">
+        <div class="ws-pane tint-${escapeHTML(note.color)}" id="ws-pane-container-${id}" onmousedown="setActivePane('${id}')" onkeydown="if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='f'){event.preventDefault();toggleDrawer('ws-find-${id}','ws-find-btn-${id}','ws-find-in-${id}');}">
           <div class="ws-compact-header">
             <span class="ws-pane-index">P${idx + 1}</span>
-            <input type="text" class="ws-title-input" value="${escapeHTML(note.title)}" placeholder="Untitled..." oninput="updatePaneTitle(${id}, this.value)">
+            <input type="text" class="ws-title-input" value="${escapeHTML(note.title)}" placeholder="Untitled..." oninput="updatePaneTitle('${id}', this.value)">
             <div class="ws-icon-group">
               <button class="icon-btn" id="ws-pal-btn-${id}" onclick="toggleDrawer('ws-pal-${id}','ws-pal-btn-${id}')" title="Color">🎨</button>
               <button class="icon-btn" id="ws-fmt-btn-${id}" onclick="toggleDrawer('ws-fmt-${id}','ws-fmt-btn-${id}')" title="Formatting"><b>Aa</b></button>
               <button class="icon-btn" id="ws-find-btn-${id}" onclick="toggleDrawer('ws-find-${id}','ws-find-btn-${id}','ws-find-in-${id}')" title="Find">🔍</button>
-              ${note.filePath ? `<button class="icon-btn" onclick="reloadLinkedFile(${id})" title="Reload">↻</button>` : ''}
-              <button class="icon-btn" onclick="saveAsWithFolderPicker(${id})" title="Save As...">💾</button>
-              <button class="icon-btn" onclick="closeWorkspacePane(${id})" title="Close">✕</button>
+              <button class="icon-btn" id="ws-ai-btn-${id}" onclick="openAiDrawer('ws-ai-${id}','ws-ai-btn-${id}','ws-ai-in-${id}','ws-ai-mod-${id}')" title="Ollama AI">✨</button>
+              ${note.filePath ? `<button class="icon-btn" onclick="reloadLinkedFile('${id}')" title="Reload">↻</button>` : ''}
+              <button class="icon-btn" onclick="saveAsWithFolderPicker('${id}')" title="Save As...">💾</button>
+              <button class="icon-btn" onclick="closeWorkspacePane('${id}')" title="Close">✕</button>
             </div>
           </div>
           <div class="sub-drawer" id="ws-pal-${id}"><div class="color-dots">${dots}</div></div>
@@ -852,29 +1122,372 @@
             </div>
             <button class="icon-btn" onclick="closeSearchDrawer('ws-ed-${id}','ws-find-${id}','ws-find-btn-${id}','ws-find-in-${id}','ws-cnt-${id}')">✕</button>
           </div>
-          <div id="ws-ed-${id}" class="rich-editor" contenteditable="true" data-placeholder="Edit note directly..." oninput="updatePaneBody(${id}, this.innerHTML)">${note.bodyHtml}</div>
+                    <div class="sub-drawer ai-drawer" id="ws-ai-${id}">
+            <div class="ai-row">
+              <select class="size-select" id="ws-ai-mod-${id}"><option value="qwen2.5:1.5b">qwen2.5:1.5b</option></select>
+              <input type="text" class="ai-input" id="ws-ai-in-${id}" placeholder="Instruction (e.g., Translate to Spanish)..."
+                onkeydown="if(event.key==='Enter'){event.preventDefault();runOllama('ws-ed-${id}','ws-ai-mod-${id}','ws-ai-in-${id}','ws-ai-out-${id}',this);}">
+              <button class="btn-primary" style="padding:5px 10px;" onclick="runOllama('ws-ed-${id}','ws-ai-mod-${id}','ws-ai-in-${id}','ws-ai-out-${id}',this)">Run</button>
+              <button class="icon-btn" onclick="toggleDrawer('ws-ai-${id}','ws-ai-btn-${id}')">✕</button>
+            </div>
+            <textarea class="ai-output" id="ws-ai-out-${id}" placeholder="Ollama response box..."></textarea>
+            <div class="ai-row" style="justify-content:flex-end;">
+              <button class="icon-btn" onclick="copyAiOut('ws-ai-out-${id}', this)">Copy</button>
+              <button class="icon-btn" onclick="applyAiOut('ws-ed-${id}', 'ws-ai-out-${id}', 'append')">+ Append</button>
+              <button class="btn-primary" style="padding:4px 10px;" onclick="applyAiOut('ws-ed-${id}', 'ws-ai-out-${id}', 'replace')">Replace</button>
+            </div>
+          </div>
+
+          <div id="ws-ed-${id}" class="rich-editor" contenteditable="true" data-placeholder="Edit note directly..." oninput="updatePaneBody('${id}', this.innerHTML)">${note.bodyHtml}</div>
           <div class="ws-pane-footer">
             <div class="tags" id="ws-tags-${id}">${tagPills}</div>
             <div class="add-tag-row">
-              <input type="text" class="add-tag-input" id="ws-tag-in-${id}" placeholder="Add tag..." onkeydown="if(event.key==='Enter'){event.preventDefault(); addPaneTag(${id});}">
-              <button class="icon-btn" onclick="addPaneTag(${id})">+ Tag</button>
+              <input type="text" class="add-tag-input" id="ws-tag-in-${id}" placeholder="Add tag..." onkeydown="if(event.key==='Enter'){event.preventDefault(); addPaneTag('${id}');}">
+              <button class="icon-btn" onclick="addPaneTag('${id}')">+ Tag</button>
             </div>
           </div>
         </div>`;
     }).join('');
   }
 
-  function closeWorkspacePane(id) { workspaceIds = workspaceIds.filter(x => x !== id); queueSaveState(); updateHeaderUI(); if (workspaceIds.length === 0) switchToLibrary(); else renderWorkspace(); }
-  function updatePaneTitle(id, val) { const n = notes.find(x => x.id === id); if (n) { n.title = val; queueSaveState(); } }
-  function updatePaneBody(id, html) { const n = notes.find(x => x.id === id); if (n) { n.bodyHtml = stripSearchHighlights(html); queueSaveState(); markFileDirty(id); } }
+  function closeWorkspacePane(id) { workspaceIds = workspaceIds.filter(x => String(x) !== String(id)); queueSaveState(); updateHeaderUI(); if (workspaceIds.length === 0) switchToLibrary(); else renderWorkspace(); }
+  function updatePaneTitle(id, val) { const n = notes.find(x => String(x.id) === String(id)); if (n) { n.title = val; queueSaveState(); } }
+  function updatePaneBody(id, html) { const n = notes.find(x => String(x.id) === String(id)); if (n) { n.bodyHtml = stripSearchHighlights(html); queueSaveState(); markFileDirty(id); } }
   function addPaneTag(id) {
-    const n = notes.find(x => x.id === id); const inp = document.getElementById(`ws-tag-in-${id}`);
+    const n = notes.find(x => String(x.id) === String(id)); const inp = document.getElementById(`ws-tag-in-${id}`);
     if (!n || !inp) return; const raw = inp.value.trim().replace(/^#/, '');
     if (raw && !n.tags.includes(raw)) { n.tags.push(raw); queueSaveState(); }
     inp.value = ''; renderWorkspace();
   }
-  function removePaneTag(id, tIdx) { const n = notes.find(x => x.id === id); if (n) { n.tags.splice(tIdx, 1); queueSaveState(); renderWorkspace(); } }
-  function setPaneColor(id, color) { const n = notes.find(x => x.id === id); if (n) { n.color = color; queueSaveState(); renderWorkspace(); } }
+  function removePaneTag(id, tIdx) { const n = notes.find(x => String(x.id) === String(id)); if (n) { n.tags.splice(tIdx, 1); queueSaveState(); renderWorkspace(); } }
+  function setPaneColor(id, color) { const n = notes.find(x => String(x.id) === String(id)); if (n) { n.color = color; queueSaveState(); renderWorkspace(); } }
+
+
+  /* ================= OLLAMA LOCAL INTEGRATION ================= */
+  let cachedOllamaModels = [];
+
+  async function openAiDrawer(drawerId, btnId, inputId, selectId) {
+    toggleDrawer(drawerId, btnId, inputId);
+    const sel = document.getElementById(selectId);
+    if (!sel) return;
+    if (cachedOllamaModels.length === 0) {
+      try {
+        const res = await fetch('/api/ollama');
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data.models) && data.models.length > 0) {
+            cachedOllamaModels = data.models.map(m => m.name);
+          }
+        }
+      } catch (e) {}
+    }
+    if (cachedOllamaModels.length > 0) {
+      sel.innerHTML = cachedOllamaModels.map(m => `<option value="${escapeHTML(m)}">${escapeHTML(m)}</option>`).join('');
+    }
+  }
+
+  function getSelectedOrFullText(editorId) {
+    const editor = document.getElementById(editorId);
+    if (!editor) return '';
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.rangeCount > 0) {
+      const range = sel.getRangeAt(0);
+      if (editor.contains(range.commonAncestorContainer)) {
+        return sel.toString().trim();
+      }
+    }
+    return editor.innerText.trim();
+  }
+
+  async function runOllama(editorId, modelSelectId, instrInputId, outBoxId, triggerEl) {
+    const instr = document.getElementById(instrInputId)?.value.trim();
+    const outBox = document.getElementById(outBoxId);
+    const model = document.getElementById(modelSelectId)?.value || 'qwen2.5:1.5b';
+    if (!instr) { showToast('Enter an instruction first'); return; }
+
+    const sourceText = getSelectedOrFullText(editorId);
+    outBox.value = 'Thinking (' + model + ')...';
+    if (triggerEl && triggerEl.tagName === 'BUTTON') triggerEl.disabled = true;
+
+    try {
+      const res = await fetch('/api/ollama', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model, instruction: instr, text: sourceText })
+      });
+      if (!res.ok) {
+        outBox.value = 'Error: ' + (await res.text());
+      } else {
+        const data = await res.json();
+        outBox.value = data.response || '';
+      }
+    } catch (e) {
+      outBox.value = 'Failed to reach Ollama at localhost:11434';
+    } finally {
+      if (triggerEl && triggerEl.tagName === 'BUTTON') triggerEl.disabled = false;
+    }
+  }
+
+  function copyAiOut(outBoxId, btn) {
+    const val = document.getElementById(outBoxId)?.value || '';
+    if (!val) return;
+    navigator.clipboard.writeText(val);
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 1200);
+  }
+
+  function applyAiOut(editorId, outBoxId, mode) {
+    const editor = document.getElementById(editorId);
+    const val = document.getElementById(outBoxId)?.value || '';
+    if (!editor || !val) return;
+    const formatted = escapeHTML(val).replace(/\n/g, '<br>');
+    if (mode === 'replace') {
+      editor.innerHTML = formatted;
+    } else {
+      editor.innerHTML += (editor.innerHTML ? '<br><br>' : '') + formatted;
+    }
+    editor.dispatchEvent(new Event('input'));
+    showToast(mode === 'replace' ? 'Replaced note text' : 'Appended to note');
+  }
+
+
+  /* ================= SIDE PANE OLLAMA & SESSION LIFECYCLE ================= */
+  async function toggleOllamaSidepane() {
+    const pane = document.getElementById('ollamaSidepane');
+    const btn = document.getElementById('toggleSideOllamaBtn');
+    const willOpen = !pane.classList.contains('open');
+    pane.classList.toggle('open', willOpen);
+    btn.classList.toggle('active-tab', willOpen);
+
+    const savedInstr = localStorage.getItem('wb_ollama_instr');
+    if (savedInstr && !document.getElementById('spInstruction').value) {
+      document.getElementById('spInstruction').value = savedInstr;
+    }
+
+    if (willOpen) {
+      try {
+        const res = await fetch('/api/ollama');
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data.models) && data.models.length > 0) {
+            document.getElementById('spModelSelect').innerHTML = data.models.map(m => `<option value="${escapeHTML(m.name)}">${escapeHTML(m.name)}</option>`).join('');
+          }
+        }
+      } catch (e) {}
+    }
+  }
+
+  function pullActivePaneIntoSidepane() {
+    let targetEditor = null;
+    if (activeModalNoteId !== null) {
+      targetEditor = document.getElementById('modalEditor');
+    } else if (currentMode === 'workspace') {
+      const targetId = activePaneId || workspaceIds[0];
+      if (targetId) targetEditor = document.getElementById('ws-ed-' + targetId);
+    }
+    if (!targetEditor) {
+      showToast('Open a note or click a Workspace pane first');
+      return;
+    }
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.rangeCount > 0 && targetEditor.contains(sel.getRangeAt(0).commonAncestorContainer)) {
+      document.getElementById('spInputText').value = sel.toString().trim();
+    } else {
+      document.getElementById('spInputText').value = targetEditor.innerText.trim();
+    }
+    showToast('Pulled text into Ollama terminal');
+  }
+
+  function pushSidepaneToActivePane() {
+    const val = document.getElementById('spResponseBox').value;
+    if (!val) return;
+    let targetEditor = null;
+    if (activeModalNoteId !== null) {
+      targetEditor = document.getElementById('modalEditor');
+    } else if (currentMode === 'workspace') {
+      const targetId = activePaneId || workspaceIds[0];
+      if (targetId) targetEditor = document.getElementById('ws-ed-' + targetId);
+    }
+    if (!targetEditor) {
+      showToast('Click a Workspace pane or open a note first');
+      return;
+    }
+    const formatted = escapeHTML(val).replace(/\n/g, '<br>');
+    targetEditor.innerHTML += (targetEditor.innerHTML ? '<br><br>' : '') + formatted;
+    targetEditor.dispatchEvent(new Event('input'));
+    showToast('Inserted into active pane');
+  }
+
+  async function runSidepaneOllama() {
+    const instr = document.getElementById('spInstruction').value.trim();
+    const text = document.getElementById('spInputText').value.trim();
+    const model = document.getElementById('spModelSelect').value || 'qwen2.5:1.5b';
+    const outBox = document.getElementById('spResponseBox');
+    const btn = document.getElementById('spRunBtn');
+
+    if (!instr && !text) { showToast('Enter an instruction or input text'); return; }
+    localStorage.setItem('wb_ollama_instr', instr);
+
+    outBox.value = 'Generating with ' + model + '...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/ollama', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model, instruction: instr, text })
+      });
+      if (!res.ok) outBox.value = 'Error: ' + (await res.text());
+      else {
+        const data = await res.json();
+        outBox.value = data.response || '';
+      }
+    } catch (e) {
+      outBox.value = 'Could not reach Ollama server';
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  // Heartbeat keeps Go server & Ollama alive while tab is open; closing tab kills both cleanly
+  setInterval(() => { fetch('/api/heartbeat').catch(() => {}); }, 3000);
+  window.addEventListener('beforeunload', () => { navigator.sendBeacon('/api/shutdown'); });
+
+
+  /* ================= SIDE PANE OLLAMA & SESSION LIFECYCLE ================= */
+  async function toggleOllamaSidepane() {
+    const pane = document.getElementById('ollamaSidepane');
+    const btn = document.getElementById('toggleSideOllamaBtn');
+    const willOpen = !pane.classList.contains('open');
+    pane.classList.toggle('open', willOpen);
+    btn.classList.toggle('active-tab', willOpen);
+
+    const savedInstr = localStorage.getItem('wb_ollama_instr');
+    if (savedInstr && !document.getElementById('spInstruction').value) {
+      document.getElementById('spInstruction').value = savedInstr;
+    }
+
+    if (willOpen) {
+      try {
+        const res = await fetch('/api/ollama');
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data.models) && data.models.length > 0) {
+            document.getElementById('spModelSelect').innerHTML = data.models.map(m => `<option value="${escapeHTML(m.name)}">${escapeHTML(m.name)}</option>`).join('');
+          }
+        }
+      } catch (e) {}
+    }
+  }
+
+  function pullActivePaneIntoSidepane() {
+    let targetEditor = null;
+    if (activeModalNoteId !== null) {
+      targetEditor = document.getElementById('modalEditor');
+    } else if (currentMode === 'workspace') {
+      const targetId = activePaneId || workspaceIds[0];
+      if (targetId) targetEditor = document.getElementById('ws-ed-' + targetId);
+    }
+    if (!targetEditor) {
+      showToast('Open a note or click a Workspace pane first');
+      return;
+    }
+    const sel = window.getSelection();
+    if (sel && !sel.isCollapsed && sel.rangeCount > 0 && targetEditor.contains(sel.getRangeAt(0).commonAncestorContainer)) {
+      document.getElementById('spInputText').value = sel.toString().trim();
+    } else {
+      document.getElementById('spInputText').value = targetEditor.innerText.trim();
+    }
+    showToast('Pulled text into Ollama terminal');
+  }
+
+  function pushSidepaneToActivePane() {
+    const val = document.getElementById('spResponseBox').value;
+    if (!val) return;
+    let targetEditor = null;
+    if (activeModalNoteId !== null) {
+      targetEditor = document.getElementById('modalEditor');
+    } else if (currentMode === 'workspace') {
+      const targetId = activePaneId || workspaceIds[0];
+      if (targetId) targetEditor = document.getElementById('ws-ed-' + targetId);
+    }
+    if (!targetEditor) {
+      showToast('Click a Workspace pane or open a note first');
+      return;
+    }
+    const formatted = escapeHTML(val).replace(/\n/g, '<br>');
+    targetEditor.innerHTML += (targetEditor.innerHTML ? '<br><br>' : '') + formatted;
+    targetEditor.dispatchEvent(new Event('input'));
+    showToast('Inserted into active pane');
+  }
+
+  async function runSidepaneOllama() {
+    const instr = document.getElementById('spInstruction').value.trim();
+    const text = document.getElementById('spInputText').value.trim();
+    const model = document.getElementById('spModelSelect').value || 'qwen2.5:1.5b';
+    const outBox = document.getElementById('spResponseBox');
+    const btn = document.getElementById('spRunBtn');
+
+    if (!instr && !text) { showToast('Enter an instruction or input text'); return; }
+    localStorage.setItem('wb_ollama_instr', instr);
+
+    outBox.value = 'Generating with ' + model + '...';
+    btn.disabled = true;
+    try {
+      const res = await fetch('/api/ollama', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model, instruction: instr, text })
+      });
+      if (!res.ok) outBox.value = 'Error: ' + (await res.text());
+      else {
+        const data = await res.json();
+        outBox.value = data.response || '';
+      }
+    } catch (e) {
+      outBox.value = 'Could not reach Ollama server';
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  // Heartbeat keeps Go server & Ollama alive while tab is open; closing tab kills both cleanly
+  setInterval(() => { fetch('/api/heartbeat').catch(() => {}); }, 3000);
+  window.addEventListener('beforeunload', () => { navigator.sendBeacon('/api/shutdown'); });
+
+
+  // Auto-restore and persist Ollama System Rules across reboots
+  (function initOllamaPersist() {
+    const sysEl = document.getElementById('spSystem') || document.getElementById('spInstruction');
+    if (!sysEl) return;
+    const saved = localStorage.getItem('wb_ollama_sys');
+    if (saved && saved.trim() !== '') {
+      sysEl.value = saved;
+    }
+    sysEl.addEventListener('input', () => {
+      localStorage.setItem('wb_ollama_sys', sysEl.value);
+    });
+  })();
+
+
+
+
+  async function quitWorkbenchApp() {
+    await flushStateNow();
+    showToast('Shutting down server & freeing port 8080...');
+    try { await fetch('/api/shutdown', { method: 'POST' }); } catch {}
+    setTimeout(() => { window.close(); document.body.innerHTML = '<div style="padding:40px;font-family:sans-serif;color:#e5e7eb;background:#0f1115;height:100vh;"><h2>Prompt Workbench stopped. Port 8080 is now free.</h2><p>You can close this tab.</p></div>'; }, 250);
+  }
+
+
+  // Notify server when tab closes so PromptWorkbench.exe exits and frees port 8080 (survives F5 reloads)
+  window.addEventListener('load', () => {
+    fetch('/api/ping', { method: 'POST' }).catch(() => {});
+  });
+  window.addEventListener('pagehide', () => {
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon('/api/tab-closed');
+    }
+  });
 
   loadState();
 </script>
